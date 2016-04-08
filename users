@@ -47,6 +47,8 @@
 #	http://www.freeradius.org/rfc/attributes.html
 #
 
+#DEFAULT Auth-Type = System
+
 #
 # Deny access for a specific user.  Note that this entry MUST
 # be before any other 'Auth-Type' attribute which results in the user
@@ -66,7 +68,8 @@
 #
 #DEFAULT	Group == "disabled", Auth-Type := Reject
 #		Reply-Message = "Your account has been disabled."
-#
+
+# peter DEFAULT Auth-Type := PAM
 
 #
 # This is a complete entry for "steve". Note that there is no Fall-Through
@@ -187,7 +190,8 @@ DEFAULT	Hint == "SLIP"
 	Framed-Protocol = SLIP
 
 
-admin Cleartext-Password := "password"
+admin Cleartext-Password := "userAdmin"
+bob Cleartext-Password := "userBob"
 
 #
 # Last default: rlogin to our main server.
